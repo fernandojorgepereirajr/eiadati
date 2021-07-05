@@ -1,0 +1,37 @@
+#header_body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  height: 12vh;
+  width: 100%;
+  border-bottom: solid 1px #afb4b3;
+  background-color: #00cec8;
+  color: #fff;
+}
+
+#header_body_text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+}
+#header_body_text > h2 {
+  margin: 0%;
+}
+#logo{
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#header_body_text > p {
+  margin-top: 0%;
+}
+
+.header_icon {
+  cursor: pointer;
+}
+
+#div_vazia {
+  width: 30px;
+  height: 30px;
+}

@@ -1,0 +1,31 @@
+#sideMenu_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 20%;
+  max-width: 212px;
+  border-right: solid 2px #00cec8;
+  color: #00cec8;
+}
+.sideMenu_content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sideMenu_option {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 16px 16%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  gap: 6px;
+}
+.sideMenu_option:hover {
+  background-color: #c7f7f5;
+}

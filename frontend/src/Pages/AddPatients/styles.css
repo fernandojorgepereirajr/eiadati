@@ -1,0 +1,10 @@
+#addPatients_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#addPatients_content {
+}
+#addPatients_content_information {
+}
