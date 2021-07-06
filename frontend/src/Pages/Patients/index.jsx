@@ -4,7 +4,7 @@ import SideMenu from '../../Components/SideMenu'
 import Header from '../../Components/Header'
 import PatientCard from '../../Components/Cards/PatientCard'
 import PopUp from '../../Components/PopUP'
-import { goToAddPatient, goToEditPatient } from '../../Services/navigation'
+import { goToAddPatient } from '../../Services/navigation'
 
 export default function Patients(props) {
   const [popUpState, setPopUpState] = useState(false)
@@ -102,7 +102,13 @@ export default function Patients(props) {
   }, [popUpState])
 
   const changePopUpState = () => {
-    setPopUpState(false)
+    setPopUpState(!popUpState)
+  }
+  const goToEditPatient = (name, cpf, date, uf, weight, height) => {
+    props.history.push({
+      pathname: '/edit-patient',
+      state: { name, cpf, date, uf, weight, height },
+    })
   }
 
   return (
@@ -127,7 +133,17 @@ export default function Patients(props) {
                 uf={patient.uf}
                 weight={patient.weight}
                 height={patient.height}
-                editOnClickAction={goToEditPatient}
+                editOnClickAction={() =>
+                  goToEditPatient(
+                    patient.name,
+                    patient.cpf,
+                    patient.date,
+                    patient.uf,
+                    patient.weight,
+                    patient.height,
+                  )
+                }
+                deleteOnClickAction={changePopUpState}
               />
             ))}
           </div>

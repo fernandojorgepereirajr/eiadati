@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './styles.css'
 import { FiX } from 'react-icons/fi'
 import Button from '../Button'
-import { goToHome } from '../../Services/navigation'
+import { goToNurses, goToPatients } from '../../Services/navigation'
 
 export default function DeletePopUp(props) {
   return (
@@ -14,7 +14,10 @@ export default function DeletePopUp(props) {
         <div id="popUp_close" onClick={() => props.changePopUpState()}>
           <FiX color="white" size="24" />
         </div>
-        <Button title="Confirmar" onChangeAction={goToHome} />
+        <Button
+          title="Confirmar"
+          onClickAction={props.option === 'nurses' ? goToNurses : goToPatients}
+        />
       </div>
     </>
   )

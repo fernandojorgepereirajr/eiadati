@@ -4,7 +4,7 @@ import SideMenu from '../../Components/SideMenu'
 import Header from '../../Components/Header'
 import PopUp from '../../Components/PopUP'
 import NurseCard from '../../Components/Cards/NurseCard'
-import { goToAddNurse, goToEditNurse } from '../../Services/navigation'
+import { goToAddNurse} from '../../Services/navigation'
 
 export default function Nurses(props) {
   const [popUpState, setPopUpState] = useState(false)
@@ -67,13 +67,16 @@ export default function Nurses(props) {
   }, [popUpState])
 
   const changePopUpState = () => {
-    setPopUpState(false)
+    setPopUpState(!popUpState)
+  }
+  const goToEditNurse = (name, cpf) => {
+    props.history.push({ pathname: '/edit-nurse', state: { name, cpf } })
   }
 
   return (
     <>
-      <PopUp changePopUpState={changePopUpState} />
-      
+      <PopUp changePopUpState={changePopUpState} option="nurses" />
+
       <div id="content">
         <Header
           text1="Eiadati"
@@ -88,7 +91,8 @@ export default function Nurses(props) {
               <NurseCard
                 name={nurse.name}
                 cpf={nurse.cpf}
-                editOnClickAction={goToEditNurse}
+                editOnClickAction={() => goToEditNurse(nurse.name, nurse.cpf)}
+                deleteOnClickAction={changePopUpState}
               />
             ))}
           </div>

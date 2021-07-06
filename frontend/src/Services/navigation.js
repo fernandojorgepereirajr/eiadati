@@ -10,12 +10,6 @@ const goToAddNurse = () => {
 const goToAddPatient = () => {
   window.location.href = '/add-patient'
 }
-const goToEditNurse = () => {
-  window.location.href = '/edit-nurse'
-}
-const goToEditPatient = () => {
-  window.location.href = '/edit-patient'
-}
 const goToNurses = () => {
   window.location.href = '/nurses'
 }
@@ -31,8 +25,6 @@ export {
   goToLogin,
   goToAddNurse,
   goToAddPatient,
-  goToEditNurse,
-  goToEditPatient,
   goToNurses,
   goToPatients,
   goToProfile,

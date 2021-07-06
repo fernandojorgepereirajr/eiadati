@@ -23,7 +23,7 @@ export default function NurseCard(props) {
         <div id="copy_icon" onClick={props.editOnClickAction}>
           <FiEdit color="#f5f5f5" size="20" />
         </div>
-        <div id="trash_icon">
+        <div id="trash_icon" onClick={props.deleteOnClickAction}>
           <FiTrash2 color="#f5f5f5" size="20" />
         </div>
       </div>

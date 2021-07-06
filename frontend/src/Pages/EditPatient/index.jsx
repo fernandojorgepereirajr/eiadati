@@ -14,6 +14,22 @@ export default function EditPatient(props) {
   const [height, setHeight] = useState('')
   const [uf, setUF] = useState('')
 
+  useEffect(() => {
+    const newName = props.location?.state?.name
+    const newCPF = props.location?.state?.cpf
+    const newDate = props.location?.state?.date
+    const newUF = props.location?.state?.uf
+    const newWeight = props.location?.state?.weight
+    const newHeight = props.location?.state?.height
+
+    setName(newName)
+    setCPF(newCPF)
+    setDate(newDate)
+    setUF(newUF)
+    setWeight(newWeight)
+    setHeight(newHeight)
+  }, [])
+
   const changeName = (ev) => {
     setName(ev.target.value)
   }

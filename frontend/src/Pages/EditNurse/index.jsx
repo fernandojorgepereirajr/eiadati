@@ -20,6 +20,12 @@ export default function EditNurses(props) {
   const changePassword = (ev) => {
     setPassword(ev.target.value)
   }
+  useEffect(() => {
+    const newName = props.location?.state?.name
+    const newCPF = props.location?.state?.cpf
+    setName(newName)
+    setCPF(newCPF)
+  }, [])
 
   return (
     <div id="content">
