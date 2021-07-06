@@ -3,6 +3,7 @@ import './styles.css'
 import SideMenu from '../../Components/SideMenu'
 import Header from '../../Components/Header'
 import NurseCard from '../../Components/Cards/NurseCard'
+import { goToAddNurses } from '../../Services/navigation'
 
 export default function Nurses(props) {
   const [nurses, setNurses] = useState([
@@ -46,15 +47,17 @@ export default function Nurses(props) {
 
   return (
     <div id="content">
-      <Header text1="Eiadati" text2="Enfermeiros" option="plus" />
+      <Header
+        text1="Eiadati"
+        text2="Enfermeiros"
+        option="plus"
+        onClickAction={goToAddNurses}
+      />
       <div id="content_information">
         <SideMenu />
         <div className="cards">
           {nurses.map((nurse) => (
-            <NurseCard
-              name={nurse.name}
-              cpf={nurse.cpf}
-            />
+            <NurseCard name={nurse.name} cpf={nurse.cpf} />
           ))}
         </div>
       </div>

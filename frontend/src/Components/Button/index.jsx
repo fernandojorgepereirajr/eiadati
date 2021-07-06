@@ -3,14 +3,8 @@ import './styles.css'
 
 export default function Button(props) {
   return (
-    <>
-      <button
-        className="custom_button"
-        onClick={props.onClickAction}
-        id={props.id}
-      >
-        {props.text}
-      </button>
-    </>
+    <button className="button" onClick={props.onClickAction}>
+      <span>{props.title}</span>
+    </button>
   )
 }

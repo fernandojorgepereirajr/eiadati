@@ -3,6 +3,7 @@ import './styles.css'
 import SideMenu from '../../Components/SideMenu'
 import Header from '../../Components/Header'
 import PatientCard from '../../Components/Cards/PatientCard'
+import { goToAddPatients } from '../../Services/navigation'
 
 export default function Patients(props) {
   const [patients, setPatients] = useState([
@@ -82,7 +83,12 @@ export default function Patients(props) {
 
   return (
     <div id="content">
-      <Header text1="Eiadati" text2="Pacientes" option="plus" />
+      <Header
+        text1="Eiadati"
+        text2="Pacientes"
+        option="plus"
+        onClickAction={goToAddPatients}
+      />
       <div id="content_information">
         <SideMenu />
         <div className="cards">

@@ -1,11 +1,12 @@
-.custom_input_div {
+.input_div {
     margin-top: 20px;
     border-radius: 25px;
-    box-shadow: inset 6px 6px 6px , inset -6px -6px 6px #ffffff;
-    height: 60px;
+    box-shadow: 2px 4px 6px #333;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 30%;
   }
   
   .input_div input {
@@ -17,5 +18,5 @@
       color: #555;
       padding: 20px 10px 20px 5px;
       text-align: center;
-      width: 95%;
+      width: 100%;
     }

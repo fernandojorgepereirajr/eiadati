@@ -1,12 +1,31 @@
-#login_body {
+#login {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
+  background-image: url('../../Images/medical-5459631.svg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 60%;
+  background-position: left;
 }
 #login_content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 54px;
 }
-#login_content_left {
+#login_content_text {
+  width: 30%;
+  text-align: center;
 }
-#login_content_rigth {
+#login_content_text > h1 {
+font-size: 54px;
+color: #00CEC8;
+text-shadow: 1px 1px 1px #333;
 }
+

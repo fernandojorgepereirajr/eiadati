@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './styles.css'
 import SideMenu from '../../Components/SideMenu'
 import Header from '../../Components/Header'

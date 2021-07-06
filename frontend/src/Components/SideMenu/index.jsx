@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import './styles.css'
 import { VscCompareChanges } from 'react-icons/vsc'
 import { FiX, FiUser, FiUsers, FiLogOut } from 'react-icons/fi'
-import { goToPatients, goToNurses, goToLogin } from '../../Services/navigation'
+import { goToPatients, goToNurses, goToLogin, goToProfile } from '../../Services/navigation'
 
 export default function SideMenu(props) {
   return (
     <div id="sideMenu_body">
       <div className="sideMenu_content">
-        <div className="sideMenu_option">
+        <div className="sideMenu_option" onClick={goToProfile}>
           <FiUser color="#00CEC8" size="30" />
           <span>Perfil</span>
         </div>

@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
 import './styles.css'
 import { VscCompareChanges } from 'react-icons/vsc'
-import { FiPlus, FiChevronLeft } from 'react-icons/fi'
+import { FiPlus } from 'react-icons/fi'
+import { goToHome } from '../../Services/navigation'
 
 export default function Header(props) {
   return (
     <>
       <div id="header_body">
         <div id="header_body_text">
-          <h2 id="logo">{props.text1}</h2>
-          <p>{props.restaurant}</p>
+          <h2 id="logo" onClick={goToHome}>
+            {props.text1}
+          </h2>
         </div>
 
         <div id="header_body_text">
           <h2>{props.text2}</h2>
-          <p>{props.restaurant}</p>
         </div>
 
         {props.option === 'plus' ? (

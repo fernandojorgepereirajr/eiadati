@@ -16,6 +16,9 @@ const goToNurses = () => {
 const goToPatients = () => {
   window.location.href = '/patients'
 }
+const goToProfile = () => {
+  window.location.href = '/profile'
+}
 
 export {
   goToHome,
@@ -24,4 +27,5 @@ export {
   goToAddPatients,
   goToNurses,
   goToPatients,
+  goToProfile,
 }

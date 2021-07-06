@@ -1,10 +1,8 @@
-#addPatients_body {
+.form{
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;   
   align-items: center;
-  height: 100%;
-}
-#addPatients_content {
-}
-#addPatients_content_information {
+  overflow-y: scroll;
+  padding-top: 24px;
 }
