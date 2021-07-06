@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import './styles.css'
 import Input from '../../Components/Input'
 import Button from '../../Components/Button'
-import Image from '../../Images/medical-5459631.svg'
 import { goToHome } from '../../Services/navigation'
 
 export default function Login(props) {

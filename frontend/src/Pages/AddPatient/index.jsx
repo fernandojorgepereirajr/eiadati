@@ -6,7 +6,7 @@ import { goToPatients } from '../../Services/navigation'
 import Input from '../../Components/Input'
 import Button from '../../Components/Button'
 
-export default function AddPatients(props) {
+export default function AddPatient(props) {
   const [name, setName] = useState('')
   const [cpf, setCPF] = useState('')
   const [date, setDate] = useState('')

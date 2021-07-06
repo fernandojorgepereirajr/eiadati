@@ -4,11 +4,17 @@ const goToHome = () => {
 const goToLogin = () => {
   window.location.href = '/login'
 }
-const goToAddNurses = () => {
-  window.location.href = '/add-nurses'
+const goToAddNurse = () => {
+  window.location.href = '/add-nurse'
 }
-const goToAddPatients = () => {
-  window.location.href = '/add-patients'
+const goToAddPatient = () => {
+  window.location.href = '/add-patient'
+}
+const goToEditNurse = () => {
+  window.location.href = '/edit-nurse'
+}
+const goToEditPatient = () => {
+  window.location.href = '/edit-patient'
 }
 const goToNurses = () => {
   window.location.href = '/nurses'
@@ -23,8 +29,10 @@ const goToProfile = () => {
 export {
   goToHome,
   goToLogin,
-  goToAddNurses,
-  goToAddPatients,
+  goToAddNurse,
+  goToAddPatient,
+  goToEditNurse,
+  goToEditPatient,
   goToNurses,
   goToPatients,
   goToProfile,

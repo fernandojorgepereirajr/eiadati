@@ -15,7 +15,7 @@ export default function PatientCard(props) {
         <div className="patientCard_information">
           <div className="patientCard_buttons">
             <div className="icons_div">
-              <div id="copy_icon">
+              <div id="copy_icon" onClick={props.editOnClickAction}>
                 <FiEdit color="#f5f5f5" size="20" />
               </div>
               <div id="trash_icon">

@@ -6,7 +6,7 @@ import { goToNurses } from '../../Services/navigation'
 import Input from '../../Components/Input'
 import Button from '../../Components/Button'
 
-export default function AddNurses(props) {
+export default function EditNurses(props) {
   const [name, setName] = useState('')
   const [cpf, setCPF] = useState('')
   const [password, setPassword] = useState('')
@@ -23,7 +23,7 @@ export default function AddNurses(props) {
 
   return (
     <div id="content">
-      <Header text1="Eiadati" text2="Adicionar Paciente" />
+      <Header text1="Eiadati" text2="Editar Enfermeiro" />
       <div id="content_information">
         <SideMenu />
         <div className="form">
