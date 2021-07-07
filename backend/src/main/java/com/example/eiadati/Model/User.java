@@ -1,6 +1,11 @@
 package com.example.eiadati.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,9 +14,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "tb_user")
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,57 +45,12 @@ public class User {
   @NotEmpty(message = "Campo Role pode ser vazio!")
   private String role;
 
-  public User() {}
 
   public User(String name, String cpf, String password, String role) {
     super();
     this.name = name;
     this.cpf = cpf;
     this.password = password;
-    this.role = role;
-  }
-
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getCpf() {
-    return cpf;
-  }
-
-  public void setCpf(String cpf) {
-    this.cpf = cpf;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public void setUf(String password) {
-    this.password = password;
-  }
-
-  public String getRole() {
-    return role;
-  }
-
-  public void setRole(String role) {
     this.role = role;
   }
 }

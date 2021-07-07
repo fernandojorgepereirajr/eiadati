@@ -1,5 +1,9 @@
 package com.example.eiadati.Model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +14,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "patient")
 public class Patient {
@@ -42,8 +49,6 @@ public class Patient {
   @Column(name = "height")
   private String height;
 
-  public Patient() {}
-
   public Patient(
     String name,
     String cpf,
@@ -58,62 +63,6 @@ public class Patient {
     this.uf = uf;
     this.date = date;
     this.weight = weight;
-    this.height = height;
-  }
-
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getCpf() {
-    return cpf;
-  }
-
-  public void setCpf(String cpf) {
-    this.cpf = cpf;
-  }
-
-  public String getUf() {
-    return uf;
-  }
-
-  public void setUf(String uf) {
-    this.uf = uf;
-  }
-
-  public String getDate() {
-    return date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
-
-  public int getWeight() {
-    return weight;
-  }
-
-  public void setWeight(int weight) {
-    this.weight = weight;
-  }
-
-  public String getHeight() {
-    return height;
-  }
-
-  public void setHeight(String height) {
     this.height = height;
   }
 }

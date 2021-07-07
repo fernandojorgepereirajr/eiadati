@@ -1,5 +1,10 @@
 package com.example.eiadati.Model.DTO;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class PatientDTO {
   private String name;
 
@@ -11,53 +16,6 @@ public class PatientDTO {
 
   private int weight;
 
-  private String heigth;
+  private String height;
 
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getCpf() {
-    return cpf;
-  }
-
-  public void setCpf(String cpf) {
-    this.cpf = cpf;
-  }
-
-  public String getUf() {
-    return uf;
-  }
-
-  public void setUf(String uf) {
-    this.uf = uf;
-  }
-
-  public String getDate() {
-    return date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
-
-  public int getWeight() {
-    return weight;
-  }
-
-  public void setWeight(int weight) {
-    this.weight = weight;
-  }
-
-  public String getHeigth() {
-    return heigth;
-  }
-
-  public void setHeigth(String heigth) {
-    this.heigth = heigth;
-  }
 }

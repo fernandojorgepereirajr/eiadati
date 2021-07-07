@@ -24,7 +24,7 @@ public class PatientService {
         patient.getUf(),
         patient.getDate(),
         patient.getWeight(),
-        patient.getHeigth()
+        patient.getHeight()
       );
       patientRepository.save(patientCreated);
       return patientCreated;

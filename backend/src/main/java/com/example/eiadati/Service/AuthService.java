@@ -24,7 +24,7 @@ public class AuthService {
     try {
       Map<String, Object> responseData = new HashMap<>();
 
-      User user = userRepository.findByNomeIgnoreCase(data.getName());
+      User user = userRepository.findByNameIgnoreCase(data.getName());
 
       if (user == null) {
         responseData.put("status", 404);

@@ -1,45 +1,18 @@
 package com.example.eiadati.Model.DTO;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDTO {
+  private String name;
 
-	private String name;
-	
-	private String cpf;
-	
-	private String password;
+  private String cpf;
 
-	public UserDTO() {
-	}
-
-	public UserDTO(String name, String cpf, String password) {
-		super();
-		this.name = name;
-		this.cpf = cpf;
-		this.password = password;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+  private String password;
 }
