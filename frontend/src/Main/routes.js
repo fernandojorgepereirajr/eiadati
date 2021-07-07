@@ -11,7 +11,6 @@ import Home from '../Pages/Home'
 import Profile from '../Pages/Profile'
 
 const auth = localStorage.getItem("isauth")
-{console.log(auth)}
 const routes = () => auth ? (
   <Switch>
     <Route exact={true} path="/login" component={Login} />
