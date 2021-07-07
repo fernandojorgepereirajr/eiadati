@@ -11,17 +11,15 @@ export default function Patients(props) {
   const [popUpState, setPopUpState] = useState(false)
   const [id, setId] = useState('')
   const [patients, setPatients] = useState([])
-  const [role, setRole] = useState('')
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchPatients = async () => {
       try {
         const response = await Api.get('patient/')
         setPatients(response.data)
-        console.log(response.data)
       } catch (error) {}
     }
-    fetchData()
+    fetchPatients()
   }, [])
 
   useEffect(() => {
@@ -47,6 +45,7 @@ export default function Patients(props) {
     setId(id)
     setPopUpState(!popUpState)
   }
+
   const goToEditPatient = (name, cpf, date, uf, weight, height) => {
     props.history.push({
       pathname: '/edit-patient',
@@ -86,7 +85,7 @@ export default function Patients(props) {
                     patient.height,
                   )
                 }
-                deleteOnClickAction={changePopUpState(patient.id)}
+                deleteOnClickAction={()=> changePopUpState(patient.id)}
               />
             ))}
           </div>

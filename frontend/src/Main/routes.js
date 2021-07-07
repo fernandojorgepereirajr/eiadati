@@ -10,8 +10,9 @@ import EditPatient from '../Pages/EditPatient'
 import Home from '../Pages/Home'
 import Profile from '../Pages/Profile'
 
-
-const routes = () => (
+const auth = localStorage.getItem("isauth")
+{console.log(auth)}
+const routes = () => auth ? (
   <Switch>
     <Route exact={true} path="/login" component={Login} />
     <Route exact={true} path="/add-nurse" component={AddNurse} />
@@ -24,6 +25,11 @@ const routes = () => (
     <Route exact={true} path="/home" component={Home} />
     <Redirect from="*" to="/home" />;
   </Switch>
+) : (
+  <Switch>
+  <Route exact={true} path="/login" component={Login} />
+  <Redirect from="*" to="/login" />;
+</Switch>
 )
 
 export default routes

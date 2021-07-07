@@ -11,18 +11,19 @@ export default function Nurses(props) {
   const [popUpState, setPopUpState] = useState(false)
   const [id, setId] = useState('')
   const [nurses, setNurses] = useState([])
-  const [role, setRole] = useState('')
+
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchNurses = async () => {
       try {
         const response = await Api.get('user/')
         setNurses(response.data)
-        console.log(response.data)
       } catch (error) {}
     }
-    fetchData()
+    fetchNurses()
   }, [])
+
+
 
   useEffect(() => {
     const handlePopUp = () => {
@@ -71,7 +72,7 @@ export default function Nurses(props) {
                   name={nurse.name}
                   cpf={nurse.cpf}
                   editOnClickAction={() => goToEditNurse(nurse.name, nurse.cpf)}
-                  deleteOnClickAction={changePopUpState(nurse.id)}
+                  deleteOnClickAction={()=> changePopUpState(nurse.id)}
                 />
               ))
             }
