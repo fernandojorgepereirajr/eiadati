@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './styles.css'
 import SideMenu from '../../Components/SideMenu'
 import Header from '../../Components/Header'
 import { goToPatients } from '../../Services/navigation'
 import Input from '../../Components/Input'
 import Button from '../../Components/Button'
+import Api from '../../Services/api'
 
 export default function AddPatient(props) {
   const [name, setName] = useState('')
@@ -13,6 +14,27 @@ export default function AddPatient(props) {
   const [weight, setWeight] = useState('')
   const [height, setHeight] = useState('')
   const [uf, setUF] = useState('')
+
+
+
+  const addPatient = async () => {
+    const body = {
+      name: name,
+      date: date,
+      weight: weight,
+      height: height,
+      uf: uf,
+      cpf: cpf,
+    }
+      try {
+        await Api.post('patient/', body)
+        goToPatients()
+      } catch (error) {
+      }
+    }
+  
+
+
 
   const changeName = (ev) => {
     setName(ev.target.value)
@@ -75,7 +97,7 @@ export default function AddPatient(props) {
             onChangeAction={changeUF}
             value={uf}
           />
-          <Button title="Adicionar" onChangeAction={goToPatients} />
+          <Button title="Adicionar" onClickAction={addPatient} />
         </div>
       </div>
     </div>

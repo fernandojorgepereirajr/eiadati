@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './styles.css'
 import Input from '../../Components/Input'
 import Button from '../../Components/Button'
 import { goToHome } from '../../Services/navigation'
+import Api from '../../Services/api'
 
 export default function Login(props) {
   const [name, setName] = useState('')
@@ -14,6 +15,21 @@ export default function Login(props) {
 
   const changePassword = (ev) => {
     setPassword(ev.target.value)
+  }
+  const handleLogin = async () => {
+    try {
+      const body = {
+        name: name,
+        password: password,
+      }
+      let response = await Api.post('auth/', body)
+      const token = response.data[0]
+      localStorage.setItem('auth_token', token)
+      localStorage.setItem('role', response.data[1])
+      localStorage.setItem('isauth', true)
+
+      goToHome()
+    } catch (error) {}
   }
 
   return (
@@ -34,7 +50,7 @@ export default function Login(props) {
           onChangeAction={changePassword}
           value={password}
         />
-        <Button title="Entrar" onChangeAction={goToHome} />
+        <Button title="Entrar" onClickAction={handleLogin} />
       </div>
     </div>
   )

@@ -5,83 +5,25 @@ import Header from '../../Components/Header'
 import PatientCard from '../../Components/Cards/PatientCard'
 import PopUp from '../../Components/PopUP'
 import { goToAddPatient } from '../../Services/navigation'
+import Api from '../../Services/api'
 
 export default function Patients(props) {
   const [popUpState, setPopUpState] = useState(false)
-  const [patients, setPatients] = useState([
-    {
-      name: 'Redson Farias Barbosa Filho',
-      cpf: '707.404.450-80',
-      date: '23/04/1997',
-      weight: 68,
-      height: 176,
-      uf: 'PB',
-    },
-    {
-      name: 'Dimas Wesley Farias de Araújo',
-      cpf: '706.404.451-80',
-      date: '09/11/1996',
-      weight: 75,
-      height: 180,
-      uf: 'PB',
-    },
-    {
-      name: 'José Roberto da Silva',
-      cpf: '708.404.450-80',
-      date: '04/11/2000',
-      weight: 60,
-      height: 172,
-      uf: 'PB',
-    },
-    {
-      name: 'Redson Farias Barbosa Filho',
-      cpf: '707.404.450-80',
-      date: '23/04/1997',
-      weight: 68,
-      height: 176,
-      uf: 'PB',
-    },
-    {
-      name: 'Dimas Wesley Farias de Araújo',
-      cpf: '706.404.451-80',
-      date: '09/11/1996',
-      weight: 75,
-      height: 180,
-      uf: 'PB',
-    },
-    {
-      name: 'José Roberto da Silva',
-      cpf: '708.404.450-80',
-      date: '04/11/2000',
-      weight: 60,
-      height: 172,
-      uf: 'PB',
-    },
-    {
-      name: 'Redson Farias Barbosa Filho',
-      cpf: '707.404.450-80',
-      date: '23/04/1997',
-      weight: 68,
-      height: 176,
-      uf: 'PB',
-    },
-    {
-      name: 'Dimas Wesley Farias de Araújo',
-      cpf: '706.404.451-80',
-      date: '09/11/1996',
-      weight: 75,
-      height: 180,
-      uf: 'PB',
-    },
-    {
-      name: 'José Roberto da Silva',
-      cpf: '708.404.450-80',
-      date: '04/11/2000',
-      weight: 60,
-      height: 172,
-      uf: 'PB',
-    },
-  ])
+  const [id, setId] = useState('')
+  const [patients, setPatients] = useState([])
+  const [role, setRole] = useState('')
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await Api.get('patient/')
+        setPatients(response.data)
+        console.log(response.data)
+      } catch (error) {}
+    }
+    fetchData()
+  }, [])
+
   useEffect(() => {
     const handlePopUp = () => {
       const popUp = document.getElementById('popUp')
@@ -101,7 +43,8 @@ export default function Patients(props) {
     handlePopUp()
   }, [popUpState])
 
-  const changePopUpState = () => {
+  const changePopUpState = (id) => {
+    setId(id)
     setPopUpState(!popUpState)
   }
   const goToEditPatient = (name, cpf, date, uf, weight, height) => {
@@ -113,7 +56,7 @@ export default function Patients(props) {
 
   return (
     <>
-      <PopUp changePopUpState={changePopUpState} />
+      <PopUp changePopUpState={changePopUpState} id={id} />
 
       <div id="content">
         <Header
@@ -143,7 +86,7 @@ export default function Patients(props) {
                     patient.height,
                   )
                 }
-                deleteOnClickAction={changePopUpState}
+                deleteOnClickAction={changePopUpState(patient.id)}
               />
             ))}
           </div>

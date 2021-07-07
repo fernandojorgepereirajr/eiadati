@@ -1,10 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './styles.css'
 import { FiX } from 'react-icons/fi'
 import Button from '../Button'
 import { goToNurses, goToPatients } from '../../Services/navigation'
+import Api from '../../Services/api'
 
 export default function DeletePopUp(props) {
+  const deleteNurse = async () => {
+    try {
+      await Api.delete(`/user/${props.id}`)
+    } catch (error) {
+      console.log(error)
+    }
+    goToNurses()
+  }
+  const deletePatient = async () => {
+    try {
+      await Api.delete(`/patient/${props.id}`)
+    } catch (error) {
+      console.log(error)
+    }
+    goToPatients()
+  }
+
+
   return (
     <>
       <div id="popUp">
@@ -16,7 +35,7 @@ export default function DeletePopUp(props) {
         </div>
         <Button
           title="Confirmar"
-          onClickAction={props.option === 'nurses' ? goToNurses : goToPatients}
+          onClickAction={props.option === 'nurses' ? deleteNurse : deletePatient}
         />
       </div>
     </>

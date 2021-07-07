@@ -4,49 +4,26 @@ import SideMenu from '../../Components/SideMenu'
 import Header from '../../Components/Header'
 import PopUp from '../../Components/PopUP'
 import NurseCard from '../../Components/Cards/NurseCard'
-import { goToAddNurse} from '../../Services/navigation'
+import { goToAddNurse } from '../../Services/navigation'
+import Api from '../../Services/api'
 
 export default function Nurses(props) {
   const [popUpState, setPopUpState] = useState(false)
+  const [id, setId] = useState('')
+  const [nurses, setNurses] = useState([])
+  const [role, setRole] = useState('')
 
-  const [nurses, setNurses] = useState([
-    {
-      name: 'Redson Farias Barbosa Filho',
-      cpf: '707.404.450-80',
-    },
-    {
-      name: 'Dimas Wesley Farias de Araújo',
-      cpf: '706.404.451-80',
-    },
-    {
-      name: 'José Roberto da Silva',
-      cpf: '708.404.450-80',
-    },
-    {
-      name: 'Redson Farias Barbosa Filho',
-      cpf: '707.404.450-80',
-    },
-    {
-      name: 'Dimas Wesley Farias de Araújo',
-      cpf: '706.404.451-80',
-    },
-    {
-      name: 'José Roberto da Silva',
-      cpf: '708.404.450-80',
-    },
-    {
-      name: 'Redson Farias Barbosa Filho',
-      cpf: '707.404.450-80',
-    },
-    {
-      name: 'Dimas Wesley Farias de Araújo',
-      cpf: '706.404.451-80',
-    },
-    {
-      name: 'José Roberto da Silva',
-      cpf: '708.404.450-80',
-    },
-  ])
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await Api.get('user/')
+        setNurses(response.data)
+        console.log(response.data)
+      } catch (error) {}
+    }
+    fetchData()
+  }, [])
+
   useEffect(() => {
     const handlePopUp = () => {
       const popUp = document.getElementById('popUp')
@@ -66,7 +43,8 @@ export default function Nurses(props) {
     handlePopUp()
   }, [popUpState])
 
-  const changePopUpState = () => {
+  const changePopUpState = (id) => {
+    setId(id)
     setPopUpState(!popUpState)
   }
   const goToEditNurse = (name, cpf) => {
@@ -75,7 +53,7 @@ export default function Nurses(props) {
 
   return (
     <>
-      <PopUp changePopUpState={changePopUpState} option="nurses" />
+      <PopUp changePopUpState={changePopUpState} option="nurses" id={id} />
 
       <div id="content">
         <Header
@@ -87,14 +65,16 @@ export default function Nurses(props) {
         <div id="content_information">
           <SideMenu />
           <div className="cards">
-            {nurses.map((nurse) => (
-              <NurseCard
-                name={nurse.name}
-                cpf={nurse.cpf}
-                editOnClickAction={() => goToEditNurse(nurse.name, nurse.cpf)}
-                deleteOnClickAction={changePopUpState}
-              />
-            ))}
+            {
+              nurses.map((nurse) => (
+                <NurseCard
+                  name={nurse.name}
+                  cpf={nurse.cpf}
+                  editOnClickAction={() => goToEditNurse(nurse.name, nurse.cpf)}
+                  deleteOnClickAction={changePopUpState(nurse.id)}
+                />
+              ))
+            }
           </div>
         </div>
       </div>

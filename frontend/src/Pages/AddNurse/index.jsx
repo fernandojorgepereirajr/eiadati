@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './styles.css'
 import SideMenu from '../../Components/SideMenu'
 import Header from '../../Components/Header'
 import { goToNurses } from '../../Services/navigation'
 import Input from '../../Components/Input'
 import Button from '../../Components/Button'
+import Api from '../../Services/api'
 
 export default function AddNurse(props) {
   const [name, setName] = useState('')
@@ -20,6 +21,19 @@ export default function AddNurse(props) {
   const changePassword = (ev) => {
     setPassword(ev.target.value)
   }
+  const addNurse = async () => {
+      const body = {
+        name: name,
+        password: password,
+        cpf: cpf,
+      }
+        try {
+          await Api.post('user/', body)
+          goToNurses()
+        } catch (error) {
+        }
+      
+    }
 
   return (
     <div id="content">
@@ -45,7 +59,7 @@ export default function AddNurse(props) {
             onChangeAction={changePassword}
             value={password}
           />
-          <Button title="Adicionar" onChangeAction={goToNurses} />
+          <Button title="Adicionar" onClickAction={addNurse} />
         </div>
       </div>
     </div>
